@@ -13,7 +13,7 @@ wb = openpyxl.load_workbook(tfi)
 
 
 wsheet = wb['sum']
-
+print(wsheet.max_row)
 '''
 for row in range(1, 10):
     wsheet.append(range(10));
