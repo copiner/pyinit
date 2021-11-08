@@ -6,6 +6,8 @@ openpy
 import openpyxl
 from openpyxl.styles import Border, Side, PatternFill, Font, GradientFill, Alignment
 
+import math
+
 def read_excel(path, sheet_name):
     workbook = openpyxl.load_workbook(path)
 
@@ -383,6 +385,7 @@ def read_excel(path, sheet_name):
     print('E9 = ', e9)
     print('F9 = ', f9)
     print('A9 + B9 = ',a9+b9)
+
     print('D9 + E9 = ',d9+e9)
     print('\n')
 
@@ -421,19 +424,55 @@ def read_excel(path, sheet_name):
 
     len = sheet.max_row
 
-    sheet.append(["CLASS","A","B","C","D","E","F","A+B","D+E"])
-    sheet.append(['1',a1,b1,c1,d1,e1,f1,a1+b1,d1+e1])
-    sheet.append(['2',a2,b2,c2,d2,e2,f2,a2+b2,d2+e2])
-    sheet.append(['3',a3,b3,c3,d3,e3,f3,a3+b3,d3+e3])
-    sheet.append(['4',a4,b4,c4,d4,e4,f4,a4+b4,d4+e4])
-    sheet.append(['5',a5,b5,c5,d5,e5,f5,a5+b5,d5+e5])
-    sheet.append(['6',a6,b6,c6,d6,e6,f6,a6+b6,d6+e6])
-    sheet.append(['7',a7,b7,c7,d7,e7,f7,a7+b7,d7+e7])
-    sheet.append(['8',a8,b8,c8,d8,e8,f8,a8+b8,d8+e8])
-    sheet.append(['9',a9,b9,c9,d9,e9,f9,a9+b9,d9+e9])
-    sheet.append(['10',a10,b10,c10,d10,e10,f10,a10+b10,d10+e10])
-    sheet.append(['11',a11,b11,c11,d11,e11,f11,a11+b11,d11+e11])
-    sheet.append(['12',a12,b12,c12,d12,e12,f12,a12+b12,d12+e12])
+    sheet.append(["CLASS","A","B","C","D","E","F","A+B","D+E","ALL","ALL70"])
+    one = math.ceil((a1+b1+c1+d1+e1+f1)*0.7)
+    all1 = a1+b1+c1+d1+e1+f1
+    onea = 0
+    oneab = 0
+    onede = 0
+    if all1-one<=d1+e1:
+        onea = a1
+        oneab = a1+b1
+        onede = d1+e1-(all1-one)
+    else: #all1-one > d1+e1:
+        if all1-one <= c1+d1+e1:
+            onea = a1
+            oneab = a1+b1
+            onede = 0
+        else: # all1-one > c1+d1+e1
+            if all1-one <= b1+c1+d1+e1:
+                onea = a1
+                oneab = a1+b1+c1+d1+e1-(all1-one)
+                onede = 0
+            else:#all1-one > b1+c1+d1+e1
+                onea = a1+b1+c1+d1+e1-(all1-one)
+                oneab = onea
+                onede = 0
+
+
+    sheet.append(['1',a1,b1,c1,d1,e1,f1,a1+b1,d1+e1,a1+b1+c1+d1+e1+f1,one])
+    two = math.ceil((a2+b2+c2+d2+e2+f2)*0.7)
+    sheet.append(['2',a2,b2,c2,d2,e2,f2,a2+b2,d2+e2,a2+b2+c2+d2+e2+f2,two])
+    three = math.ceil((a3+b3+c3+d3+e3+f3)*0.7)
+    sheet.append(['3',a3,b3,c3,d3,e3,f3,a3+b3,d3+e3,a3+b3+c3+d3+e3+f3,three])
+    four = math.ceil((a4+b4+c4+d4+e4+f4)*0.7)
+    sheet.append(['4',a4,b4,c4,d4,e4,f4,a4+b4,d4+e4,a4+b4+c4+d4+e4+f4,four])
+    five = math.ceil((a5+b5+c5+d5+e5+f5)*0.7)
+    sheet.append(['5',a5,b5,c5,d5,e5,f5,a5+b5,d5+e5,a5+b5+c5+d5+e5+f5,five])
+    six = math.ceil((a6+b6+c6+d6+e6+f6)*0.7)
+    sheet.append(['6',a6,b6,c6,d6,e6,f6,a6+b6,d6+e6,a6+b6+c6+d6+e6+f6,six])
+    seven = math.ceil((a7+b7+c7+d7+e7+f7)*0.7)
+    sheet.append(['7',a7,b7,c7,d7,e7,f7,a7+b7,d7+e7,a7+b7+c7+d7+e7+f7,seven])
+    eight = math.ceil((a8+b8+c8+d8+e8+f8)*0.7)
+    sheet.append(['8',a8,b8,c8,d8,e8,f8,a8+b8,d8+e8,a8+b8+c8+d8+e8+f8,eight])
+    nine = math.ceil((a9+b9+c9+d9+e9+f9)*0.7)
+    sheet.append(['9',a9,b9,c9,d9,e9,f9,a9+b9,d9+e9,a9+b9+c9+d9+e9+f9,nine])
+    ten = math.ceil((a10+b10+c10+d10+e10+f10)*0.7)
+    sheet.append(['10',a10,b10,c10,d10,e10,f10,a10+b10,d10+e10,a10+b10+c10+d10+e10+f10,ten])
+    eleven = math.ceil((a11+b11+c11+d11+e11+f11)*0.7)
+    sheet.append(['11',a11,b11,c11,d11,e11,f11,a11+b11,d11+e11,a11+b11+c11+d11+f11,eleven])
+    twelve = math.ceil((a12+b12+c12+d12+e12+f12)*0.7)
+    sheet.append(['12',a12,b12,c12,d12,e12,f12,a12+b12,d12+e12,a12+b12+c12+d12+e12+f12,twelve])
 
     thin = Side(border_style="thin", color="000000")
     double = Side(border_style="double", color="ffffff")
@@ -443,7 +482,7 @@ def read_excel(path, sheet_name):
     aborder=Border(top=thin, left=thin, right=thin, bottom=double)
 
     for j in range(len+1,len+14):
-        for k in range(1,10):
+        for k in range(1,12):
             sheet.cell(j,k).alignment=acenter
             #sheet.cell(j,k).fill=bfille
             #sheet.cell(j,k).border=aborder
