@@ -293,7 +293,7 @@ def cal_excel(book_name,sheet_name):
             he_stu += 1
 
     for row in sheet.iter_rows(min_row=3, max_row=t_stu70+2):
-        t_sco70 = round(t_sco, 1) + s_filter(row[4].value)#总分
+        t_sco70 = round(t_sco70, 1) + s_filter(row[4].value)#总分
         ct_sco70 = round(ct_sco70, 1) + s_filter(row[8].value)#语文
         mt_sco70 = round(mt_sco70, 1) + s_filter(row[12].value)
         et_sco70 = round(et_sco70, 1) + s_filter(row[16].value)
@@ -335,19 +335,19 @@ def cal_excel(book_name,sheet_name):
     # 精度问题TODO
     t_aver = round(t_sco/t_stu, 1)
     t_aver70 = round(t_sco70/t_stu70, 1)
-    a_ratio = round(a_stu/t_stu, 2)
+    a_ratio = round(a_stu/t_stu, 4)
 
     ab_stu = a_stu+b_stu
-    ab_ratio = round(ab_stu/t_stu, 2)
+    ab_ratio = round(ab_stu/t_stu, 4)
 
     de_stu = d_stu + e_stu
-    de_ratio = round(de_stu/t_stu, 2)
+    de_ratio = round(de_stu/t_stu, 4)
 
     ab_stu70 = a_stu70 + b_stu70
-    ab_ratio70 = round(ab_stu70/t_stu, 2)
+    ab_ratio70 = round(ab_stu70/t_stu70, 4)
 
     t_list = [
-        "",t_stu,"","",
+        "6"+sheet_name,t_stu,"","",
         t_aver,"",t_stu70,t_aver70,"",
         a_stu,a_ratio,"",ab_stu,ab_ratio,"",de_stu,de_ratio,"",
         ab_stu70,ab_ratio70,""
@@ -357,19 +357,19 @@ def cal_excel(book_name,sheet_name):
     # 语文
     ct_aver = round(ct_sco/t_stu, 1)
     ct_aver70 = round(ct_sco70/t_stu70, 1)
-    ca_ratio = round(ca_stu/t_stu, 2)
+    ca_ratio = round(ca_stu/t_stu, 4)
 
     cab_stu = ca_stu+cb_stu
-    cab_ratio = round(cab_stu/t_stu, 2)
+    cab_ratio = round(cab_stu/t_stu, 4)
 
     cde_stu = cd_stu + ce_stu
-    cde_ratio = round(cde_stu/t_stu, 2)
+    cde_ratio = round(cde_stu/t_stu, 4)
 
     cab_stu70 = ca_stu70 + cb_stu70
-    cab_ratio70 = round(cab_stu70/t_stu, 2)
+    cab_ratio70 = round(cab_stu70/t_stu70, 4)
 
     c_list = [
-        "",t_stu,"","",
+        "6"+sheet_name,t_stu,"","",
         ct_aver,"",t_stu70,ct_aver70,"",
         ca_stu,ca_ratio,"",cab_stu,cab_ratio,"",cde_stu,cde_ratio,"",
         cab_stu70,cab_ratio70,""
@@ -377,19 +377,19 @@ def cal_excel(book_name,sheet_name):
     # 数学
     mt_aver = round(mt_sco/t_stu, 1)
     mt_aver70 = round(mt_sco70/t_stu70, 1)
-    ma_ratio = round(ma_stu/t_stu, 2)
+    ma_ratio = round(ma_stu/t_stu, 4)
 
     mab_stu = ma_stu+mb_stu
-    mab_ratio = round(mab_stu/t_stu, 2)
+    mab_ratio = round(mab_stu/t_stu, 4)
 
     mde_stu = md_stu + me_stu
-    mde_ratio = round(mde_stu/t_stu, 2)
+    mde_ratio = round(mde_stu/t_stu, 4)
 
     mab_stu70 = ma_stu70 + mb_stu70
-    mab_ratio70 = round(mab_stu70/t_stu, 2)
+    mab_ratio70 = round(mab_stu70/t_stu70, 4)
 
     m_list = [
-        "",t_stu,"","",
+       "6"+sheet_name,t_stu,"","",
         mt_aver,"",t_stu70,mt_aver70,"",
         ma_stu,ma_ratio,"",mab_stu,mab_ratio,"",mde_stu,mde_ratio,"",
         mab_stu70,mab_ratio70,""
@@ -397,19 +397,19 @@ def cal_excel(book_name,sheet_name):
     # 英语
     et_aver = round(et_sco/t_stu, 1)
     et_aver70 = round(et_sco70/t_stu70, 1)
-    ea_ratio = round(ea_stu/t_stu, 2)
+    ea_ratio = round(ea_stu/t_stu, 4)
 
     eab_stu = ea_stu+eb_stu
-    eab_ratio = round(eab_stu/t_stu, 2)
+    eab_ratio = round(eab_stu/t_stu, 4)
 
     ede_stu = ed_stu + ee_stu
-    ede_ratio = round(ede_stu/t_stu, 2)
+    ede_ratio = round(ede_stu/t_stu, 4)
 
     eab_stu70 = ea_stu70 + eb_stu70
-    eab_ratio70 = round(eab_stu70/t_stu, 2)
+    eab_ratio70 = round(eab_stu70/t_stu70, 4)
 
     e_list = [
-        "",t_stu,"","",
+        "6"+sheet_name,t_stu,"","",
         et_aver,"",t_stu70,et_aver70,"",
         ea_stu,ea_ratio,"",eab_stu,eab_ratio,"",ede_stu,ede_ratio,"",
         eab_stu70,eab_ratio70,""
@@ -419,19 +419,19 @@ def cal_excel(book_name,sheet_name):
     # 科学
     st_aver = round(st_sco/t_stu, 1)
     st_aver70 = round(st_sco70/t_stu70, 1)
-    sa_ratio = round(sa_stu/t_stu, 2)
+    sa_ratio = round(sa_stu/t_stu, 4)
 
     sab_stu = sa_stu+sb_stu
-    sab_ratio = round(sab_stu/t_stu, 2)
+    sab_ratio = round(sab_stu/t_stu, 4)
 
     sde_stu = sd_stu + se_stu
-    sde_ratio = round(sde_stu/t_stu, 2)
+    sde_ratio = round(sde_stu/t_stu, 4)
 
     sab_stu70 = sa_stu70 + sb_stu70
-    sab_ratio70 = round(sab_stu70/t_stu, 2)
+    sab_ratio70 = round(sab_stu70/t_stu70, 4)
 
     s_list = [
-        "",t_stu,"","",
+        "6"+sheet_name,t_stu,"","",
         st_aver,"",t_stu70,st_aver70,"",
         sa_stu,sa_ratio,"",sab_stu,sab_ratio,"",sde_stu,sde_ratio,"",
         sab_stu70,sab_ratio70,""
@@ -440,19 +440,19 @@ def cal_excel(book_name,sheet_name):
     # 体育健康
     ht_aver = round(ht_sco/t_stu, 1)
     ht_aver70 = round(ht_sco70/t_stu70, 1)
-    ha_ratio = round(ha_stu/t_stu, 2)
+    ha_ratio = round(ha_stu/t_stu, 4)
 
     hab_stu = ha_stu+hb_stu
-    hab_ratio = round(hab_stu/t_stu, 2)
+    hab_ratio = round(hab_stu/t_stu, 4)
 
     hde_stu = hd_stu + he_stu
-    hde_ratio = round(hde_stu/t_stu, 2)
+    hde_ratio = round(hde_stu/t_stu, 4)
 
     hab_stu70 = ha_stu70 + hb_stu70
-    hab_ratio70 = round(hab_stu70/t_stu, 2)
+    hab_ratio70 = round(hab_stu70/t_stu70, 4)
 
     h_list = [
-        "",t_stu,"","",
+        "6"+sheet_name,t_stu,"","",
         ht_aver,"",t_stu70,ht_aver70,"",
         ha_stu,ha_ratio,"",hab_stu,hab_ratio,"",hde_stu,hde_ratio,"",
         hab_stu70,hab_ratio70,""
