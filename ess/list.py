@@ -1,4 +1,4 @@
-# lsit
+# list
 
 bicycles = ['trek','cannondable','redline','specialized']
 print(bicycles)
